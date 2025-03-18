@@ -60,7 +60,7 @@ public class PracticeProblem {
 		 }
 	}
 
-	public static String getAge(int Line, String file) {
+	public static int getAge(int Line, String file) {
 		
 		BufferedReader inputStream = null;
 
@@ -71,16 +71,19 @@ public class PracticeProblem {
 				for(int i=1;i<=Line;i++) {
 					line = inputStream.readLine();
 					if (line == null) {
-						return "-1"; 
+						return -1; 
 					}
 				}
 			
-			String[] ageArr = line.split(" ");
-			String age = ageArr[2];
-			return age;
+			if (line != "") {
+				String[] ageArr = line.split(" ");
+				int age = Integer.parseInt(ageArr[2]);
+				return age;
+			}
+			else {return -1;}
 		}
 
-		catch (IOException e) {return "-1";}
+		catch (IOException e) {return -1;}
 		
 		finally {
 		 	try {
@@ -92,7 +95,7 @@ public class PracticeProblem {
 		 }
 	}
 
-	public static String getNumber(int Line, String file) {
+	public static int getNumber(int Line, String file) {
 		
 		BufferedReader inputStream = null;
 
@@ -103,16 +106,16 @@ public class PracticeProblem {
 				for(int i=1;i<=Line;i++) {
 					line = inputStream.readLine();
 					if (line == null) {
-						return "-1"; 
+						return -1; 
 					}
 				}
 			
 			String[] numArr = line.split(" ");
-			String num = numArr[3];
+			int num = Integer.parseInt(numArr[3]);
 			return num;
 		}
 
-		catch (IOException e) {return "-1";}
+		catch (IOException e) {return -1;}
 		
 		finally {
 		 	try {
